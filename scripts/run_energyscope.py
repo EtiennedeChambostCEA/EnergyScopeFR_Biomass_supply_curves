@@ -18,8 +18,8 @@ import my_energyscope as es
 warnings.filterwarnings("ignore")
 
 if __name__ == '__main__':
-    analysis_only = True
-    compute_TDs = False
+    analysis_only = False
+    compute_TDs = True
 
     # define project path
     project_path = Path(__file__).parents[1]
@@ -76,7 +76,7 @@ if __name__ == '__main__':
         elec_layer_plot = es.plot_layer_balance_td(outputs['layer_ELECTRICITY'], title='Electricity layer balance during the different typical days', number_tds=number_tds)
         elec_layer_plot.show() 
 
-    print_layer_balance_other = False
+    print_layer_balance_other = True
     if print_layer_balance_other == True :
         heat_low_t_decen_layer_plot = es.plot_layer_balance_td(outputs['layer_HEAT_LOW_T_DECEN'], title='Decentralised layer balance during the different typical days', number_tds=number_tds)
         heat_low_t_decen_layer_plot.show() 
@@ -84,31 +84,27 @@ if __name__ == '__main__':
         heat_low_t_dhn_layer_plot.show() 
         heat_high_t_layer_plot = es.plot_layer_balance_td(outputs['layer_HEAT_HIGH_T'], title='High temperature heat layer balance during the different typical days', number_tds=number_tds)
         heat_high_t_layer_plot.show() 
-        heat_h2_layer_plot = es.plot_layer_balance_td(outputs['layer_H2'], title='Hydrogen layer balance during the different typical days', number_tds=number_tds)
-        heat_h2_layer_plot.show() 
-        heat_ammonia_layer_plot = es.plot_layer_balance_td(outputs['layer_AMMONIA'], title='Ammonia layer balance during the different typical days', number_tds=number_tds)
-        heat_ammonia_layer_plot.show() 
-        heat_ammonia_layer_plot = es.plot_layer_balance_td(outputs['layer_FT_FUEL'], title='Fischer-Tropsch fuel layer balance during the different typical days', number_tds=number_tds)
-        heat_ammonia_layer_plot.show() 
 
-    # Print the evolution of the energy stored with different energy vectors over the entire year
-    print_energy_stored = True
-    if print_energy_stored == True :
-        energy_stored = es.plot_energy_stored(outputs['energy_stored'])
-        energy_stored.show()
+heat_h2_layer_plot = es.plot_layer_balance_td(outputs['layer_H2'], title='Hydrogen layer balance during the different typical days', number_tds=number_tds)
         
-    # Print the pie chart of the repartition of the cost of the system 
-    plot_cost_system = False
-    if plot_cost_system == True :
-        fig = es.plot_total_cost_system (outputs)
-        fig.show()
-        share_ghg_construction = es.plot_share_ghg_construction (outputs)
-        share_ghg_construction.show()
-
-    print_load_factor = True
-    if print_load_factor == True:
-        es.compute_load_factors(outputs)
+    # Print the evolution of the energy stored with different energy vectors over the entire year
+print_energy_stored = True
+if print_energy_stored == True :
+    energy_stored = es.plot_energy_stored(outputs['energy_stored'])
+    energy_stored.show()
     
+# Print the pie chart of the repartition of the cost of the system 
+plot_cost_system = True
+if plot_cost_system == True :
+    fig = es.plot_total_cost_system (outputs)
+    fig.show()
+    share_ghg_construction = es.plot_share_ghg_construction (outputs)
+    share_ghg_construction.show()
+
+print_load_factor = True
+if print_load_factor == True:
+    es.compute_load_factors(outputs)
+
 
 
     
