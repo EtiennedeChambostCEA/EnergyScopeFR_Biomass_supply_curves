@@ -18,8 +18,8 @@ import my_energyscope as es
 warnings.filterwarnings("ignore")
 
 if __name__ == '__main__':
-    analysis_only = False
-    compute_TDs = True
+    analysis_only = True
+    compute_TDs = False
 
     # define project path
     project_path = Path(__file__).parents[1]
@@ -71,12 +71,12 @@ if __name__ == '__main__':
 
     # To print the layer balance for the different typical days for different energies
     number_tds = config['nbr_td']
-    print_layer_balance_elec = True
+    print_layer_balance_elec = False
     if print_layer_balance_elec == True :
         elec_layer_plot = es.plot_layer_balance_td(outputs['layer_ELECTRICITY'], title='Electricity layer balance during the different typical days', number_tds=number_tds)
         elec_layer_plot.show() 
 
-    print_layer_balance_other = True
+    print_layer_balance_other = False
     if print_layer_balance_other == True :
         heat_low_t_decen_layer_plot = es.plot_layer_balance_td(outputs['layer_HEAT_LOW_T_DECEN'], title='Decentralised layer balance during the different typical days', number_tds=number_tds)
         heat_low_t_decen_layer_plot.show() 
@@ -88,20 +88,20 @@ if __name__ == '__main__':
 heat_h2_layer_plot = es.plot_layer_balance_td(outputs['layer_H2'], title='Hydrogen layer balance during the different typical days', number_tds=number_tds)
         
     # Print the evolution of the energy stored with different energy vectors over the entire year
-print_energy_stored = True
+print_energy_stored = False
 if print_energy_stored == True :
     energy_stored = es.plot_energy_stored(outputs['energy_stored'])
     energy_stored.show()
     
 # Print the pie chart of the repartition of the cost of the system 
-plot_cost_system = True
+plot_cost_system = False
 if plot_cost_system == True :
     fig = es.plot_total_cost_system (outputs)
     fig.show()
     share_ghg_construction = es.plot_share_ghg_construction (outputs)
     share_ghg_construction.show()
 
-print_load_factor = True
+print_load_factor = False
 if print_load_factor == True:
     es.compute_load_factors(outputs)
 
