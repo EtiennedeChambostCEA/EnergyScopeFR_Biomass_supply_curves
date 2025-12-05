@@ -40,3 +40,11 @@ printing_td: True
 # PRINTING more detailed outputs
 'print_hourly_data': True
 'print_sankey': False
+
+# Options for biomass supply curve
+biomass_supply_curve:
+  enable: true            # false = ne touche rien
+  xlsx_path: data/ENSPRESO_supply_curves_NUTS0.xlsx
+  scenario: MED           # LOW | MED | HIGH
+  year: 2020              # 2020 | 2050
+  nuts0: FR

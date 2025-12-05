@@ -21,7 +21,7 @@ from subprocess import CalledProcessError, run
 from pathlib import Path
 
 from my_energyscope import ampl_syntax, print_set, print_df, newline, print_param, print_header, print_run
-
+from my_energyscope.preprocessing.es_pre.enspreso import apply_enspreso
 
 # TODO
 #  write doc
@@ -127,6 +127,10 @@ def import_data(config: dict):
             all_df[key].columns = all_df[key].columns.str.strip()
 
     all_df['Misc'] = misc
+
+    apply_enspreso(config, all_df)
+   
+
 
     config['all_data'] = all_df
 

@@ -18,7 +18,7 @@ import my_energyscope as es
 warnings.filterwarnings("ignore")
 
 if __name__ == '__main__':
-    analysis_only = True
+    analysis_only = False
     compute_TDs = False
 
     # define project path
@@ -26,11 +26,21 @@ if __name__ == '__main__':
 
     # loading the config file into a python dictionnary
     config = es.load_config(config_fn='config_ref.yaml', project_path=project_path)
+    
 
     config['Working_directory'] = os.getcwd() # keeping current working directory into config
     config['case_studies'] = os.path.join(project_path,'case_studies', 'paper1', 'base_case')
-    config['case_study'] = 'test_case'
+    config['case_study'] = 'case BIOMASS FR LOW_2050'
 
+    cfg = config.setdefault('biomass_supply_curve', {})
+    cfg.update({'scenario': 'LOW', 'year': 2050, 'nuts0': 'FR', 'enable': True})
+    print("ENS override:", cfg)
+
+
+  
+    config['biomass_supply_curve'] = cfg
+
+   
 
 
     config['ampl_options']['log_file'] = os.path.join(config['case_studies'], config['case_study'], config['ampl_options']['log_file'])
@@ -56,16 +66,22 @@ if __name__ == '__main__':
 
     #To print the Sankey diagrams 
     print_sankey = True
-    if print_sankey == True:
-        fig = es.Sankey_plot(outputs['year_balance'], outputs['sto_year'])
-        fig.update_layout(width=3000, height=1800)
-        fig.update_layout(font=dict(size=22, color='black'))
-        fig.show()
+    if print_sankey:
+        out_dir = os.path.join(config['case_studies'], config['case_study'], 'output', 'sankey')
+        os.makedirs(out_dir, exist_ok=True)
 
-        fig = es.Sankey_carbon(outputs['year_balance'], outputs['gwp_breakdown'])
-        fig.update_layout(width=2500, height=1500)
-        fig.update_layout(font=dict(size=22, color='black'))
-        fig.show()
+        fig_energy = es.Sankey_plot(outputs['year_balance'], outputs['sto_year'])
+        fig_energy.update_layout(width=3000, height=1800, font=dict(size=22, color='black'))
+        fig_energy.show()
+
+        # Sankey carbone
+        fig_carbon = es.Sankey_carbon(outputs['year_balance'], outputs['gwp_breakdown'])
+        fig_carbon.update_layout(width=2500, height=1500, font=dict(size=22, color='black'))
+        fig_carbon.show()
+
+
+
+
         print('Total cost of the system (MEUR/year)', outputs['cost_breakdown']['C_inv'].sum() + outputs['cost_breakdown']['C_maint'].sum() +outputs['cost_breakdown']['C_op'].sum())
         print('Total electricity production (TWh/year)', outputs['year_balance'].loc[outputs['year_balance'].loc[:,'ELECTRICITY' ].ge(100),'ELECTRICITY' ].sum())
 
