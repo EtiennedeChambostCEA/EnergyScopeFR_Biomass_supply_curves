@@ -48,3 +48,4 @@ biomass_supply_curve:
   scenario: MED           # LOW | MED | HIGH
   year: 2020              # 2020 | 2050
   nuts0: FR
+  solid_cap_gwh : None

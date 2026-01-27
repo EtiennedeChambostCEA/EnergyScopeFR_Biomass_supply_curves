@@ -33,7 +33,7 @@ if __name__ == '__main__':
     config['case_study'] = 'case BIOMASS FR LOW_2050'
 
     cfg = config.setdefault('biomass_supply_curve', {})
-    cfg.update({'scenario': 'LOW', 'year': 2050, 'nuts0': 'FR', 'enable': True})
+    cfg.update({'scenario': 'MED', 'year': 2050, 'nuts0': 'FR', 'enable': True})
     print("ENS override:", cfg)
 
 
