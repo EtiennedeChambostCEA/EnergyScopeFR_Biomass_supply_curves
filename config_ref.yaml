@@ -6,7 +6,7 @@
 # Dictionnary with the dataframes containing all the data in the form : {'Demand': eud, 'Resources': resources, 'Technologies': technologies, 'End_uses_categories': end_uses_categories, 'Layers_in_out': layers_in_out, 'Storage_characteristics': storage_characteristics, 'Storage_eff_in': storage_eff_in, 'Storage_eff_out': storage_eff_out, 'Time_series': time_series, 'Misc': misc}
 'all_data': {}
 # Limit on emissions [ktCO2-eq./year]
-'GWP_limit': 10;
+'GWP_limit': 11;
 
 # Relative path from main directory to energyscope subdirectories and files
 'data_dir': 'data'  # Folders containing the csv data files
@@ -44,8 +44,8 @@ printing_td: True
 # Options for biomass supply curve
 biomass_supply_curve:
   enable: true            # false = ne touche rien
-  xlsx_path: data/ENSPRESO_supply_curves_NUTS0.xlsx
-  scenario: MED           # LOW | MED | HIGH
-  year: 2020              # 2020 | 2050
+  xlsx_path: ENSPRESO_supply_curves_NUTS0.xlsx
+  scenario: LOW           # LOW | MED | HIGH
+  year: 2050              # 2020 | 2050
   nuts0: FR
   solid_cap_gwh : None

@@ -60,6 +60,7 @@ def print_data(config):
         out_path = cs / config['case_study'] / 'ESTD_data.dat'
         # config['es_path'] + '/ESTD_data.dat'
         gwp_limit = config['GWP_limit']
+        wood_cap = config.get("wood_cap", 1e12)  # valeur par défaut très large
 
         # Pre-processing df #
 
@@ -132,6 +133,8 @@ def print_data(config):
         #print('end uses categories', end_uses_categories, end_uses_categories.loc[:, 'END_USES_CATEGORIES'])
         END_USES_CATEGORIES = list(end_uses_categories.loc[:, 'END_USES_CATEGORIES'].unique())
         RESOURCES = list(resources_simple.index)
+
+        WOOD_RESOURCES = [r for r in RESOURCES if ("WOOD" in layers_in_out.columns) and (r in layers_in_out.index) and (layers_in_out.loc[r, "WOOD"] > 0)]
         RES_IMPORT_CONSTANT = ['GAS', 'GAS_RE', 'H2_RE', 'H2', 'JETFUEL', 'JETFUEL_RE']  # TODO automatise
         CO2_CATEGORIES = ['CO2_DECENTRALISED', 'CO2_CENTRALISED','CO2_CAPTURED', 'CO2_ATMOSPHERE', 'OTHER_GHG']
         CO2_EQ = ['CO2_ATMOSPHERE', 'CO2_EMISSIONS']
@@ -233,6 +236,7 @@ def print_data(config):
         print_set(END_USES_INPUT, 'END_USES_INPUT', out_path)
         print_set(END_USES_CATEGORIES, 'END_USES_CATEGORIES', out_path)
         print_set(RESOURCES, 'RESOURCES', out_path)
+        print_set(WOOD_RESOURCES, 'WOOD_RESOURCES', out_path)
         print_set(RES_IMPORT_CONSTANT, 'RES_IMPORT_CONSTANT', out_path)
         print_set(BIOFUELS, 'BIOFUELS', out_path)
         print_set(RE_RESOURCES, 'RE_RESOURCES', out_path)
@@ -296,7 +300,7 @@ def print_data(config):
             writer.writerow(['# -----------------------------	'])
             writer.writerow([''])
             writer.writerow(['## PARAMETERS presented in Table 2.	'])
-        # printing i_rate, re_share_primary,gwp_limit,solar_area
+        # printing i_rate, re_share_primary,gwp_limit,solar_area, max use of solid biomass
         print_param('i_rate', i_rate, 'part [2.7.4]', out_path)
         print_param('re_share_primary', re_share_primary, 'Minimum RE share in primary consumption', out_path)
         print_param('gwp_limit', gwp_limit, 'gwp_limit [ktCO2-eq./year]: maximum GWP emissions', out_path)
@@ -305,6 +309,8 @@ def print_data(config):
                     out_path)
         print_param('power_density_solar_thermal', power_density_solar_thermal,
                     'Solar thermal : 1 kW/3.5m2 => 0.2857 kW/m2 => 0.2857 GW/km2', out_path)
+        print_param("wood_cap",wood_cap,"Maximum annual use of solid biomass [GWh/year]",out_path)
+
         newline(out_path)
         with open(out_path, mode='a', newline='') as file:
             writer = csv.writer(file, delimiter='\t', quotechar=' ', quoting=csv.QUOTE_MINIMAL)

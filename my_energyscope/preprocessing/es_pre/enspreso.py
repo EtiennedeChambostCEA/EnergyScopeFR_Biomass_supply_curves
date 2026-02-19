@@ -117,7 +117,7 @@ def apply_enspreso(config, all_df=None):
         return
 
     # Enabled: load ENSPRESO sheet
-    xlsx_path = Path(cfg.get('xlsx_path', 'data/ENSPRESO_supply_curves_NUTS0.xlsx'))
+    xlsx_path = Path(cfg.get('xlsx_path', 'ENSPRESO_supply_curves_NUTS0.xlsx'))
     scenario = cfg.get('scenario', 'LOW')
     year = str(cfg.get('year', 2020))
     nuts0 = cfg.get('nuts0', 'FR')

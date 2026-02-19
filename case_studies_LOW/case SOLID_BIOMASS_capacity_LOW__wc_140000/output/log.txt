@@ -1,0 +1,61 @@
+
+Presolve eliminates 839221 constraints and 545230 variables.
+"option presolve 6;" used.
+Adjusted problem:
+293345 variables, all linear
+533468 constraints, all linear; 2009313 nonzeros
+	362288 equality constraints
+	171180 inequality constraints
+1 linear objective; 1 nonzero.
+
+presolve results:
+	variables omitted:	545229
+	constraints omitted:	839221
+	ranges relaxed:		42380
+	bounds improved:	539775
+	constraint_drop_tol breakpoints: 0, 0, 1.706996254466575
+	nba cycles:		5
+	bound row scans:	339794
+	row-scan updates:	56715
+Gurobi 12.0.0:   pre:dual = -1
+  alg:method = 2
+  bar:crossover = 0
+  pre:passes = 5
+  bar:convtol = 1e-05
+  pre:solve = -1
+Gurobi 12.0.0: optimal solution; objective 263559.3033
+0 simplex iterations
+86 barrier iterations
+ 
+------------ WARNINGS ------------
+WARNING:  "Tolerance violations"
+  Type                         MaxAbs [Name]   MaxRel [Name]
+* variable bounds              2E-06           -             
+* algebraic con(s)             1E-02           1E-04         
+*: Using the solver's aux variable values.
+Documentation: mp.ampl.com/modeling-tools.html#automatic-solution-check.
+solve_result = solved
+
+solve_result_num = 0
+
+_solve_elapsed_time = 25.875
+
+TotalCost 263559.3032710885
+GWP_op 39219.62343894507
+GWP_op -473.00467227276596
+--------------SAVING COSTS -----------
+--------------SAVING RESOURCES -----------
+--------------SAVING GWP -----------
+--------------SAVING Losses -----------
+--------------SAVING ASSETS -----------
+--------------SAVING CO2 -----------
+GWP_constr 16505.608141544388
+ CO2 centralised -993418.8825009466
+ CO2 centralised -113.40398202083469
+ CO2 decentralised -11005421.738661207
+ CO2 decentralised -1256.3266824939562
+ CO2 atmo -473.00467227276425
+GWP_op -473.00467227276596
+Total GWP 9.985636633500633
+--------------SAVING STORAGE -----------
+--------------SAVING LAYERS -----------

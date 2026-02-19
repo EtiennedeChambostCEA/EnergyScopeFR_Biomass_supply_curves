@@ -29,11 +29,11 @@ if __name__ == '__main__':
     
 
     config['Working_directory'] = os.getcwd() # keeping current working directory into config
-    config['case_studies'] = os.path.join(project_path,'case_studies', 'paper1', 'base_case')
-    config['case_study'] = 'case BIOMASS FR LOW_2050'
+    config['case_studies'] = os.path.join(project_path,'case_studies_LOW')
+    config['case_study'] = 'case SOLID_BIOMASS_capacity_LOW_test'
 
     cfg = config.setdefault('biomass_supply_curve', {})
-    cfg.update({'scenario': 'MED', 'year': 2050, 'nuts0': 'FR', 'enable': True})
+    cfg.update({'scenario': 'LOW', 'year': 2050, 'nuts0': 'FR', 'enable': True})
     print("ENS override:", cfg)
 
 
