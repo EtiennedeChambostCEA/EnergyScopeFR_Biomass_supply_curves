@@ -51,6 +51,14 @@ def run_es(config):
     print_files = [str(ampl_run_dir / 'print_year_summary.run')]
     if config['print_hourly_data']:
         print_files.append(str(ampl_run_dir / 'print_hourly_data.run'))
+    if config['print_dual_variables']:
+        print_files.append(str(ampl_run_dir / 'print_year_summary_dual.run'))
+
+    print("DEBUG: using es_run.py from", __file__)
+    print("DEBUG: print_files that will be written into ESTD_main.run:")
+    for p in print_files:
+        print("  -", p)
+    print("DEBUG: run_fn =", cs / config["case_study"] / run_file)
 
     # print .run to case_study directory
     print_run(run_fn=(cs / config['case_study'] / run_file), mod_fns=[(cs / config['case_study'] / 'es_model.mod')],

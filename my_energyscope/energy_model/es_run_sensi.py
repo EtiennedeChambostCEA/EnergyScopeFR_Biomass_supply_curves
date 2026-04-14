@@ -55,6 +55,9 @@ def run_es_sensi(config):
         print_files.append(str(ampl_run_dir / 'print_hourly_data.run'))
     if config['print_hourly_yearly_data']:
         print_files.append(str(ampl_run_dir / 'print_hourly_yearly_data.run'))
+    #if config['print_dual_variables']:
+        print_files.append(str(ampl_run_dir / 'print_year_summary_dual.run'))
+
         
     # print .run to case_study directory
     print_run(run_fn=(cs / config['case_study'] / run_file), mod_fns=[(cs / config['case_study'] / 'es_model.mod')],

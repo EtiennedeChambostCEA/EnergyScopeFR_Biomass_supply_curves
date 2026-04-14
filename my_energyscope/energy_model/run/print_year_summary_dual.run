@@ -1,0 +1,54 @@
+## Saving year summary to output file
+
+## Print cost breakdown to txt file.
+print "--------------SAVING GENERAL DUAL VARIABLE -----------";
+printf "%s\t%s\n", "Name", "Value" > (PathName & "/general_dual.txt");
+printf "%s\t%s\n", "Minimum_GWP_Reduction_Dual", Minimum_GWP_reduction.dual > (PathName & "/general_dual.txt");
+printf "%s\t%s\n", "Other_GHGs_emission_dual", agri_emissions.dual > (PathName & "/general_dual.txt");
+printf "%s\t%s\n", "CNETRALISED_CO2_Dual", cement_emissions.dual > (PathName & "/general_dual.txt");
+printf "%s\t%s\n", "Min_biomass_use ", min_biomass_use_dec.dual > (PathName & "/general_dual.txt");
+printf "%s\t%s\n", "Min_biomass_dhn ", min_biomass_use_dhn.dual > (PathName & "/general_dual.txt");
+printf "%s\t%s\n", "Min_biomass_ind ", min_biomass_use_ind.dual > (PathName & "/general_dual.txt");
+printf "%s\t%s\n", "Min_share_efuel_ft ", min_shr_e_fuel_in_ft.dual > (PathName & "/general_dual.txt");
+
+## Print resources breakdown to txt file.
+
+print "--------------SAVING Technologies dual -----------";
+printf "%s\t%s\t%s\n", "Name", "Size_limit_min ", "Size_limit_max" > (PathName & "/technologies_dual.txt");
+for {i in TECHNOLOGIES}{
+    printf "%s\t%.6f\t%.6f\n", i, size_limit_min[i].dual , size_limit_max[i].dual >> (PathName & "/technologies_dual.txt");
+}
+
+print "--------------SAVING Resources dual -----------";
+printf "%s\t%s\n", "Name", "Size_limit_max" > (PathName & "/resources_dual.txt");
+for {i in RESOURCES}{
+    printf "%s\t%.6f\n", i, resource_availability[i].dual >> (PathName & "/resources_dual.txt");
+}
+
+
+###### PRINT HOURLY DATA DUAL ######
+
+print "--------------SAVING LAYERS -----------";
+    printf "Td \t Time\t" > (PathName & "/hourly_data/layer_balance_dual.txt");
+    for {l in LAYERS diff CO2_CATEGORIES }{
+        printf "%s\t",l >> (PathName & "/hourly_data/layer_balance_dual.txt");
+    }
+    for {td in TYPICAL_DAYS, h in HOURS}{
+        printf "\n %d \t %d\t",td,h   >> (PathName & "/hourly_data/layer_balance_dual.txt");
+    for {l in LAYERS diff CO2_CATEGORIES}{
+        printf "%f\t", layer_balance[l, h, td].dual  >> (PathName & "/hourly_data/layer_balance_dual.txt");
+    }}
+
+print "--------------SAVING LAYERS -----------";
+    printf "Td \t Time\t" > (PathName & "/hourly_data/layer_balance_dual_2.txt");
+    for {l in LAYERS diff CO2_CATEGORIES }{
+        printf "%s\t",l >> (PathName & "/hourly_data/layer_balance_dual_2.txt");
+    }
+    for {td in TYPICAL_DAYS, h in HOURS}{
+        printf "\n %d \t %d\t",td,h   >> (PathName & "/hourly_data/layer_balance_dual_2.txt");
+    for {l in LAYERS diff CO2_CATEGORIES}{
+        printf "%f\t", end_uses_t[l, h, td].dual  >> (PathName & "/hourly_data/layer_balance_dual_2.txt");
+    }}
+
+
+

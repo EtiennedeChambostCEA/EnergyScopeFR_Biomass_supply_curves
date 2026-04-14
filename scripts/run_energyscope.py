@@ -18,7 +18,7 @@ import my_energyscope as es
 warnings.filterwarnings("ignore")
 
 if __name__ == '__main__':
-    analysis_only = False
+    analysis_only = True
     compute_TDs = False
 
     # define project path
@@ -29,11 +29,11 @@ if __name__ == '__main__':
     
 
     config['Working_directory'] = os.getcwd() # keeping current working directory into config
-    config['case_studies'] = os.path.join(project_path,'case_studies_LOW')
-    config['case_study'] = 'case SOLID_BIOMASS_capacity_LOW_test'
+    config['case_studies'] = os.path.join(project_path,'case_studies')
+    config['case_study'] = 'E-biofuelNo_ReFuel_blindingNo_ReFuel_sustainabilityNo_ENSPRESOHIGH_Energy_cropsLOW_GeologicalHIGH_SNBC_3_Updated_196'
 
     cfg = config.setdefault('biomass_supply_curve', {})
-    cfg.update({'scenario': 'LOW', 'year': 2050, 'nuts0': 'FR', 'enable': True})
+    cfg.update({'scenario': 'LOW', 'year': 2050, 'nuts0': 'FR', 'enable':True})
     print("ENS override:", cfg)
 
 

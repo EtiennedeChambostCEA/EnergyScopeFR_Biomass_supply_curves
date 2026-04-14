@@ -132,8 +132,8 @@ def apply_enspreso(config, all_df=None):
 
     df = df[df['NUTS0'].astype(str).str.upper() == str(nuts0).upper()]
     # Identify columns robustly
-    potential_col = [c for c in df.columns if 'Potential' in c and 'GWh' in c][0]
-    cost_col = [c for c in df.columns if 'Cost' in c and 'GWh' in c][0]
+    potential_col = [c for c in df.columns if 'Potential' in c and 'TWh' in c][0]
+    cost_col = [c for c in df.columns if 'Cost' in c and 'MWh' in c][0]
     ghg_col = [c for c in df.columns if 'GHG' in c and 'MWh' in c][0]
 
     # Update resources and layers
@@ -141,11 +141,11 @@ def apply_enspreso(config, all_df=None):
         mask = df['B-Com'].str.lower() == bcom_raw
         if mask.any() and res_name in resources.index:
             row = df[mask].iloc[0]
-            resources.loc[res_name, 'avail'] = row[potential_col]
-            resources.loc[res_name, 'c_op'] = row[cost_col]
-            resources.loc[res_name, 'gwp_op'] = row[ghg_col]
+            resources.loc[res_name, 'avail'] = row[potential_col]*1000
+            resources.loc[res_name, 'c_op'] = row[cost_col]/1000
+            resources.loc[res_name, 'gwp_op'] = row[ghg_col]/1000
             if res_name in layers.index and 'OTHER_GHG' in layers.columns:
-                layers.loc[res_name, 'OTHER_GHG'] = row[ghg_col]
+                layers.loc[res_name, 'OTHER_GHG'] = row[ghg_col]/1000
         # silently ignore if not found or not present in CSV
 
     # Block growth techs

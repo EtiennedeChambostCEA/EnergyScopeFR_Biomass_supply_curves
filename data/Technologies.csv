@@ -107,14 +107,14 @@ Synthetic fuels;Synthetic fuels;FT to JETFUELS;REFINERY_JETFUEL;0;0;0;40;0.994;0
 Synthetic fuels;Synthetic fuels;FT to GASOLINE;REFINERY_GASOLINE;0;0;0;40;0.994;0;1;0;1.00E+15;
 Synthetic fuels;Synthetic fuels;FT to DIESEL;REFINERY_DIESEL;0;0;0;40;0.994;0;1;0;1.00E+15;
 Carbon;Carbon;CO2 emission of cement production process ;CEMENT_PROCESS;0;0;0;40;1;1;1;6400;1.00E+15;CO2 [ktCO2eq]
-Carbon;Carbon;Natural CO2 Sequestration;NATURAL_CO2_SEQUESTRATION;0;0;0;40;1;1;1;0;6.27E+00;CO2 [ktCO2eq]
-Carbon;Carbon;Agriculture emissions of GHG;AGRICULTURE_EMISSIONS;0;0;0;40;1;1;1;48000;1.00E+15;CO2 [ktCO2eq]
+Carbon;Carbon;Natural CO2 Sequestration;NATURAL_CO2_SEQUESTRATION;0;0;0;40;1;1;1;0;4.337;CO2 [ktCO2eq]
+Carbon;Carbon;Agriculture emissions of GHG;AGRICULTURE_EMISSIONS;0;0;0;40;1;1;1;43000;1.00E+15;CO2 [ktCO2eq]
 Carbon;Carbon;Sequestration of CO2 by energetic biomass;BIOMASS_SEQUESTRATION;0;0;0;40;1;1;1;0;1.00E+15;CO2 [ktCO2eq]
 Carbon;Carbon;High Heat Direct air Capture;DAC_HT;7139;264.15;0;25;1;0;1;0;1.00E+15;CO2
 Carbon;Carbon;Low Heat Direct air Capture;DAC_LT;6394.8;255.8;0;20;1;0;1;0;1.00E+15;CO2
-Carbon;Carbon;Wood Growth;WOOD_GROWTH;0;262.8;0;100;1;0;1;0;0;CO2
-Carbon;Carbon;Wet biomass Growth;WET_BIOMASS_GROWTH;0;0;0;100;1;0;1;0;0;CO3
-Carbon;Carbon;Carbon Sequestration;SEQUESTRATION;0;32.4;0;40;1;0;1;0;2.74E+00;CO2 [ktCO2/ah]
+Carbon;Carbon;Wood Growth;WOOD_GROWTH;0;0;0;100;1;0;1;0;68.4931506849;CO2
+Carbon;Carbon;Wet biomass Growth;WET_BIOMASS_GROWTH;0;0;0;100;1;0;1;0;8.56;CO3
+Carbon;Carbon;Carbon Sequestration;SEQUESTRATION;0;32.4;0;40;1;0;1;0;2.74;CO2 [ktCO2/ah]
 Carbon;Carbon;Greenhouses Gases Emission;GHG_EMISSIONS;0;0;0;100;1;0;1;0;1.00E+15;
 Storage;Electricity storage;Batteries; BATT_LI ;501.3;0.775025166;61.3;15;1;0;1;0;1.00E+15;
 Storage;Electricity storage;Batteries of electric cars; BEV_BATT ;0;0;0;1;1;0;1;0;1.00E+15;

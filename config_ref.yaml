@@ -1,6 +1,6 @@
 # Case study definition
 # name of the case study. The problem formulation and ouptuts will be printed into the following relative path from main directory : case_studies/config['case_study']
-'case_study': 'plot_paper_test'
+'case_study': 'Test_dual_values'
 # number of typical days to consider
 'nbr_td': 12
 # Dictionnary with the dataframes containing all the data in the form : {'Demand': eud, 'Resources': resources, 'Technologies': technologies, 'End_uses_categories': end_uses_categories, 'Layers_in_out': layers_in_out, 'Storage_characteristics': storage_characteristics, 'Storage_eff_in': storage_eff_in, 'Storage_eff_out': storage_eff_out, 'Time_series': time_series, 'Misc': misc}
@@ -39,13 +39,16 @@ printing_td: True
 
 # PRINTING more detailed outputs
 'print_hourly_data': True
-'print_sankey': False
+'print_sankey': True
+'print_hourly_yearly_data': False
+'print_dual_variables': True
 
 # Options for biomass supply curve
 biomass_supply_curve:
-  enable: true            # false = ne touche rien
+  enable: False         # false = ne touche rien
   xlsx_path: ENSPRESO_supply_curves_NUTS0.xlsx
   scenario: LOW           # LOW | MED | HIGH
   year: 2050              # 2020 | 2050
   nuts0: FR
   solid_cap_gwh : None
+
