@@ -114,7 +114,7 @@ Carbon;Carbon;High Heat Direct air Capture;DAC_HT;7139;264.15;0;25;1;0;1;0;1.00E
 Carbon;Carbon;Low Heat Direct air Capture;DAC_LT;6394.8;255.8;0;20;1;0;1;0;1.00E+15;CO2
 Carbon;Carbon;Wood Growth;WOOD_GROWTH;0;0;0;100;1;0;1;0;68.4931506849;CO2
 Carbon;Carbon;Wet biomass Growth;WET_BIOMASS_GROWTH;0;0;0;100;1;0;1;0;8.56;CO3
-Carbon;Carbon;Carbon Sequestration;SEQUESTRATION;0;32.4;0;40;1;0;1;0;2.74;CO2 [ktCO2/ah]
+Carbon;Carbon;Carbon Sequestration;SEQUESTRATION;0;32.4;0;40;1;0;1;0;5.48;CO2 [ktCO2/ah]
 Carbon;Carbon;Greenhouses Gases Emission;GHG_EMISSIONS;0;0;0;100;1;0;1;0;1.00E+15;
 Storage;Electricity storage;Batteries; BATT_LI ;501.3;0.775025166;61.3;15;1;0;1;0;1.00E+15;
 Storage;Electricity storage;Batteries of electric cars; BEV_BATT ;0;0;0;1;1;0;1;0;1.00E+15;

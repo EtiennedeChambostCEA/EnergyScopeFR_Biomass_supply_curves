@@ -6,7 +6,7 @@
 # Dictionnary with the dataframes containing all the data in the form : {'Demand': eud, 'Resources': resources, 'Technologies': technologies, 'End_uses_categories': end_uses_categories, 'Layers_in_out': layers_in_out, 'Storage_characteristics': storage_characteristics, 'Storage_eff_in': storage_eff_in, 'Storage_eff_out': storage_eff_out, 'Time_series': time_series, 'Misc': misc}
 'all_data': {}
 # Limit on emissions [ktCO2-eq./year]
-'GWP_limit': 11;
+'GWP_limit': 40000;
 
 # Relative path from main directory to energyscope subdirectories and files
 'data_dir': 'data'  # Folders containing the csv data files

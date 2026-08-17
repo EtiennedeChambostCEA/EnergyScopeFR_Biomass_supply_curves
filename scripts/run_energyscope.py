@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     config['Working_directory'] = os.getcwd() # keeping current working directory into config
     config['case_studies'] = os.path.join(project_path,'case_studies')
-    config['case_study'] = 'E-biofuelNo_ReFuel_blindingNo_ReFuel_sustainabilityNo_ENSPRESOHIGH_Energy_cropsLOW_GeologicalHIGH_SNBC_3_Updated_196'
+    config['case_study'] = '293'
 
     cfg = config.setdefault('biomass_supply_curve', {})
     cfg.update({'scenario': 'LOW', 'year': 2050, 'nuts0': 'FR', 'enable':True})

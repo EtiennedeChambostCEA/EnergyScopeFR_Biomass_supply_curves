@@ -1,27 +1,71 @@
+# =========================
+# IDE / Editor
+# =========================
 .idea/
+.vscode/
 
-energyscope.egg-info/
-
-energyscope/__pycache__/
-
-energyscope/misc/__pycache__/
-
-energyscope/preprocessing/__pycache__/
-
-*.log
-
-
-case_studies/
-
-energyscope/postprocessing/__pycache__/
-
-energyscope/postprocessing/draw_sankey/__pycache__/
-
-.DS_Store
-
-energyscope/preprocessing/td_selection/__pycache__/
-=======
-
-Docs/_build/
-
+# =========================
+# Python
+# =========================
+__pycache__/
 *.pyc
+*.pyo
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Excel temporary files
+# =========================
+~$*.xlsx
+~$*.xls
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+*.tmp
+
+# =========================
+# EnergyScope outputs (CRUCIAL)
+# =========================
+case_studies_*/
+**/output/
+**/hourly_data/
+logs_sweep_wood_growth/
+postprocessing_216_runs/
+Demand  curve/
+
+# =========================
+# Backup files
+# =========================
+*.bak
+*.backup
+*.old
+
+# =========================
+# Generated figures (optionnel)
+# =========================
+*.png
+*.pdf
+
+# =========================
+# Generated analysis files (optionnel)
+# =========================
+ANOVA_results.xlsx
+extract_runs_segments_uses*.xlsx
+Case studies analysis.xlsx
+
+# =========================
+# IMPORTANT: DO NOT IGNORE
+# =========================
+# (rien ici volontairement)
+# -> tes .ipynb, .py et inputs Excel sont conservés
